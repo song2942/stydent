@@ -40,7 +40,6 @@ Building::Building() {
 void GoodGay::visit1() {
 	cout << "visit 1 >> " << building->m_SittingRoom << endl;
 	cout << "visit 1 >> " << building->m_BedRoom << endl;
-
 }
 void GoodGay::visit2(){
 	cout << "visit 2 >> " << building->m_SittingRoom << endl;
