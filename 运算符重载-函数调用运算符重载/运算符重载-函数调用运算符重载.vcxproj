@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{617452c7-eeaf-4071-ad12-f94f5a8af987}</ProjectGuid>
-    <RootNamespace>运算符重载左移运算符重载</RootNamespace>
+    <ProjectGuid>{2f789c0b-083a-460c-bbef-93006a98aed9}</ProjectGuid>
+    <RootNamespace>运算符重载函数调用运算符重载</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
