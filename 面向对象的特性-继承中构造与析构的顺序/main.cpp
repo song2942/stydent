@@ -2,56 +2,49 @@
 #include <string>
 using namespace std;
 
-//同名成员的处理方式
-//当子类与父类中出现同名成员时,
-//在子类中访问子类的成员直接使用名称即可
-//访问父类的成员需要添加 作用域(类名::)
-//同名成员函数的处理方式 与成员的处理方式相同
-//子类会隐藏父类所有同名成员函数(包括父类重载的成员函数)
+//菱形继承
+//一个基类有两个派生类,,又有一个类继承了两个派生类,这被称为菱形继承/钻石继承
+//通过作用域可以获取不同的年龄,但这个只要有一份就够了,这会造成资源浪费
+//利用虚继承可以解决菱形继承所带来的问题
+//虚继承 使用关键字virtual 添加在继承方式之前
+//被虚继承继承的基类被称为虚基类
 
-
-class Base {
-public:
-	Base() 
-	{
-		m_A = 10;
-	}
-
-	void func() {
-		cout << "父类的成员函数" << endl;
-	}
-
-	void func(int a) {
-		cout << "父类的成员函数 int a" << endl;
-	}
-
-	int m_A;
-};
-
-class Son : public Base
+//动物
+class Animal
 {
 public:
-	Son()
-	{
-		m_A = 20;
-	}
-	void func() {
-		cout << "子类的成员函数" << endl;
-	}
-
-	int m_A;
+	int m_Age;
 };
-	 
+//马
+class Horse:virtual public Animal
+{
+
+};
+//驴
+class Donkey :virtual public Animal
+{
+
+};
+//骡子
+class Mule : public Horse,public Donkey
+{
+
+};
+
 void test01() {
-	Son s;
-	cout << "s.m_A的值为: " << s.m_A << endl;
-	cout << "s.Base::m_A的值为: " << s.Base::m_A << endl;
-	s.Base::func();
+	Mule m;
+	m.Horse::m_Age = 28;
+	m.Donkey::m_Age = 18;
+
+	cout << "骡子的年龄--继承自马: " << m.Horse::m_Age << endl;
+	cout << "骡子的年龄--继承自驴: " << m.Donkey::m_Age << endl;
+	cout << "骡子的年龄: " << m.m_Age << endl;
+
 }
+
 
 int main() {
 	test01();
-
 
 	system("pause");
 	return 0;
